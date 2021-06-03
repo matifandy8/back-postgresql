@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./server/index.js"
   },
   "keywords": [],
-  "author": "Stenio L. de Souza <steniols@gmail.com> (https://steniols.github.io/)",
+  "author": "Matias Fandiño",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
