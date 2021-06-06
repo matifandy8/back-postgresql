@@ -20,4 +20,4 @@ CREATE TABLE jobs(
 
 -- insert fake users
 
-INSERT INTO jobs (job_description, user_location, user_full_time) VALUES ('React Js', 'Montevideo', 'full time');
+INSERT INTO jobs (job_description, job_location, job_full_time) VALUES ('React Js', 'Montevideo', 'full time');

@@ -1,17 +1,17 @@
-const db = require("../config/db");
+const db = require("../db");
 class Job {
   //get all jobs.
   async getJobs() {
     let results = await db.query(`SELECT * FROM jobs`).catch(console.log());
     return results.rows;
   }
-  //create a todo.
-  async createTodo(job) {
+  //create a job.
+  async createJob(job) {
     await db
-      .query("INSERT INTO jobs (title, checked) VALUES ($1, $2)", [
-        job.title,
-        false,
-      ])
+      .query(
+        "INSERT INTO jobs (description, location,full_time) VALUES ($1, $2, $3)",
+        [description, location, full_time]
+      )
       .catch(console.log);
     return;
   }

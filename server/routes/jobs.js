@@ -7,16 +7,18 @@ const Job = require("../controllers/job");
 //Get all todos.
 router.get("/", async (req, res) => {
   let jobs = await new Job().getJobs();
+  console.log(jobs);
+  res.json({ jobs });
 });
 
 //Create a todo.
 router.post("/job", async (req, res) => {
-  let { title } = req.body;
-  await new Job().createJob({ title }, res);
+  let { description, location, full_time } = req.body;
+  await new Job().createJob({ description, location, full_time }, res);
 });
 
 //Update a todo.
-router.put("/todos/:todoId", async (req, res) => {
+router.put("/jobs/:jobId", async (req, res) => {
   let { jobId } = req.params;
   await new Job().updateJob(jobId, res);
   let jobs = await new Job().getJobs();
@@ -26,5 +28,7 @@ router.put("/todos/:todoId", async (req, res) => {
 router.delete("/jobs/:jobId", async (req, res) => {
   let { jobId } = req.params;
   await new Job().deleteJob(jobId);
-  let todos = await new Job().getJobs();
+  let jobs = await new Job().getJobs();
 });
+
+module.exports = router;
