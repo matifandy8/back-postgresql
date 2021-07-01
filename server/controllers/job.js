@@ -5,6 +5,13 @@ class Job {
     let results = await db.query(`SELECT * FROM jobs`).catch(console.log());
     return results.rows;
   }
+  //get id job.
+  async getJob(job) {
+    let results = await db
+      .query(`SELECT * FROM jobs WHERE job_id=$1`, [job.id])
+      .catch(console.log());
+    return results.rows;
+  }
   // create a job.
   async createJob(job) {
     await db
